@@ -19,9 +19,7 @@ public class ValidacaoDocumento {
         boolean ehTamanho = documento.length() == tamanho;
         if (ehTamanho && ehConversivel(documento)) {
             ArrayList<Integer> listaNumero = stringParaArrayInt(documento);
-            Class<?>[] tipoParametro = new Class[1];
-            tipoParametro[0] = ArrayList.class;
-            Method validar = this.getClass().getDeclaredMethod(nomeMetodo, tipoParametro);
+            Method validar = this.getClass().getDeclaredMethod(nomeMetodo,  new Class[] { ArrayList.class });
             return ((boolean) validar.invoke(this, listaNumero));
         } else {
             return false;
