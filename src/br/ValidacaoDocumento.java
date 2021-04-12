@@ -7,19 +7,22 @@ import java.util.Collections;
 
 public class ValidacaoDocumento {
 
-    public boolean ehCpf(String documento) throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException{
+    public boolean ehCpf(String documento) throws NoSuchMethodException, SecurityException, IllegalAccessException,
+            IllegalArgumentException, InvocationTargetException {
         return ehDocumento(documento, 11, "validarCpf");
     }
 
-    public boolean ehCnpj(String documento) throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException{
+    public boolean ehCnpj(String documento) throws NoSuchMethodException, SecurityException, IllegalAccessException,
+            IllegalArgumentException, InvocationTargetException {
         return ehDocumento(documento, 14, "validarCnpj");
     }
 
-    private boolean ehDocumento(String documento, int tamanho, String nomeMetodo) throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException{
+    private boolean ehDocumento(String documento, int tamanho, String nomeMetodo) throws NoSuchMethodException,
+            SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
         boolean ehTamanho = documento.length() == tamanho;
         if (ehTamanho && ehConversivel(documento)) {
             ArrayList<Integer> listaNumero = stringParaArrayInt(documento);
-            Method validar = this.getClass().getDeclaredMethod(nomeMetodo,  new Class[] { ArrayList.class });
+            Method validar = this.getClass().getDeclaredMethod(nomeMetodo, new Class[] { ArrayList.class });
             return ((boolean) validar.invoke(this, listaNumero));
         } else {
             return false;
