@@ -1,5 +1,11 @@
 package br.validacao;
 
-public class Validacao {
+public abstract class Validacao {
+
+    public Validacao() {
+        super();
+    }
+    
+    protected abstract boolean ehValido();
     
 }
