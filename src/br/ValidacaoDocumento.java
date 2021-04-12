@@ -81,7 +81,6 @@ public class ValidacaoDocumento {
         }
     }
 
-    // 98209036000184
     private int formulaCnpj(ArrayList<Integer> listaNumero, int indiceInicial) {
         short soma = 0;
         byte multiplicador = 2;
