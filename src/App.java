@@ -35,7 +35,7 @@ public class App {
                 System.out.println("Resposta inválida!");
                 break;
             }
-            
+
         }
         cadastro.imprimirCadastro();
         entrada.close();

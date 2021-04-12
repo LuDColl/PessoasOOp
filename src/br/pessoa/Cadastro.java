@@ -25,7 +25,8 @@ public class Cadastro {
         addPessoa(new Juridica(nome, documento));
     }
 
-    public void imprimirCadastro() throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException{
+    public void imprimirCadastro() throws NoSuchMethodException, SecurityException, IllegalAccessException,
+            IllegalArgumentException, InvocationTargetException {
         validacao = new ValidacaoDocumento();
         System.out.println("Cadastros");
         System.out.println();
