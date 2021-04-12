@@ -2,7 +2,8 @@ package br.pessoa;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
-import br.ValidacaoDocumento;
+
+import br.validacao.ValidacaoDocumento;
 
 public class Cadastro {
     ArrayList<Pessoa> cadastro;
