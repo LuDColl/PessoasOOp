@@ -1,11 +1,13 @@
 package br.validacao;
 
 public abstract class Validar implements Validacao{
+    String parametro;
 
-    public Validar() {
+    public Validar(String parametro) {
         super();
+        this.parametro = parametro;
     }
     
-    protected abstract boolean isValido(String argumento);
+    public abstract boolean isValido();
     
 }
