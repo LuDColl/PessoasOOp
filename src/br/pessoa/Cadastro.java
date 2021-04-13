@@ -3,11 +3,10 @@ package br.pessoa;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
-import br.validacao.ValidacaoDocumento;
+import br.validacao.Validacao;
 
 public class Cadastro {
     ArrayList<Pessoa> cadastro;
-    ValidacaoDocumento validacao;
 
     public Cadastro() {
         cadastro = new ArrayList<>();
@@ -26,19 +25,19 @@ public class Cadastro {
         addPessoa(new Juridica(nome, documento));
     }
 
-    public void imprimirCadastro() throws NoSuchMethodException, SecurityException, IllegalAccessException,
-            IllegalArgumentException, InvocationTargetException {
-        validacao = new ValidacaoDocumento();
+    public void imprimirCadastro(){
         System.out.println("Cadastros");
         System.out.println();
+        boolean isFisica;
+        boolean isJuridica;
         for (Pessoa pessoa : cadastro) {
-            System.out.println("Nome da " + pessoa.getTipoPessoa() + ": " + pessoa.getNome());
-            System.out
-                    .println((pessoa.getTipoPessoa() == "pessoa física" ? "CPF: " : "CNPJ: ") + pessoa.getDocumento());
-            System.out.println((pessoa.getTipoPessoa() == "pessoa física" ? "CPF válido: " : "CNPJ válido: ")
-                    + (pessoa.getTipoPessoa() == "pessoa física"
-                            ? (validacao.ehCpf(pessoa.getDocumento()) ? "Válido" : "Inválido")
-                            : (validacao.ehCnpj(pessoa.getDocumento()) ? "Válido" : "Inválido")));
+            isFisica = pessoa.getClass().getName() == "Fisica";
+            isJuridica = pessoa.getClass().getName() == "Juridica";
+            if (isFisica) {
+                
+            } else if (isJuridica) {
+                
+            }
             System.out.println();
         }
     }

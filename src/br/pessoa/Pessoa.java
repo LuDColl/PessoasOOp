@@ -17,8 +17,6 @@ public abstract class Pessoa {
         return documento;
     }
 
-    public String getTipoPessoa() {
-        return "Pessoa";
-    }
+    public abstract String getTipoPessoa();
 
 }
