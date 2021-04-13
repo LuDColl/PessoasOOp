@@ -1,14 +1,15 @@
 package br.validacao;
 
-public class Convercao {
-    
+public class ValidarNumero extends Validar {
 
-    public boolean ehConversivel(String documento) {
+    @Override
+    public boolean isValido(String numero) {
         try {
-            Long.parseLong(documento);
+            Long.parseLong(numero);
             return true;
         } catch (NumberFormatException e) {
             return false;
         }
     }
+
 }
