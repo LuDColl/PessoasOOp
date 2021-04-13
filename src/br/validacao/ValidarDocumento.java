@@ -1,6 +1,6 @@
 package br.validacao;
 
-public class ValidarDocumento extends Validar{
+public class ValidarDocumento{
 
     @Override
     public boolean isValido(String argumento) {

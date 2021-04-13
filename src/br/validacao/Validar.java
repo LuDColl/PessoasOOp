@@ -1,6 +1,6 @@
 package br.validacao;
 
-public abstract class Validar{
+public abstract class Validar implements Validacao{
 
     public Validar() {
         super();
