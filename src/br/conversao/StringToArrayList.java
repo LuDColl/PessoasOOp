@@ -9,8 +9,12 @@ public class StringToArrayList extends ToArrayList {
     }
 
     @Override
-    public ArrayList<String> toArrayString() {
-        return null;
+    public ArrayList<Character> toArrayChar() {
+        listaCaractere = new ArrayList<>();
+        for (char caractere : texto.toCharArray()) {
+            listaCaractere.add(caractere);
+        }
+        return listaCaractere;
     }
 
     @Override
@@ -20,16 +24,6 @@ public class StringToArrayList extends ToArrayList {
             listaInteiro.add(Character.getNumericValue(caractere));
         }
         return listaInteiro;
-    }
-
-    @Override
-    public ArrayList<Float> toArrayFloat() {
-        return null;
-    }
-
-    @Override
-    public ArrayList<Double> toArrayDouble() {
-        return null;
     }
     
 }
