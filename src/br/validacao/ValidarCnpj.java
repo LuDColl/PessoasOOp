@@ -14,13 +14,20 @@ public class ValidarCnpj extends Validar {
     @Override
     public boolean isValido() {
         boolean isNumero = new ValidarNumero(parametro).isValido();
-        boolean isTamanho = new ValidarTamanho(parametro, 11).isValido();
-        ArrayList<Integer> listaNumero = new StringToArrayList(parametro).toArrayInt();
-        Collections.reverse(listaNumero);
-        boolean isDigito1 = formulaCnpj(listaNumero, 1) == listaNumero.get(2);
-        boolean isDigito2 = formulaCnpj(listaNumero, 0) == listaNumero.get(1);
-        if (isNumero && isTamanho && isDigito1 && isDigito2) {
-            return true;
+        boolean isTamanho = new ValidarTamanho(parametro, 14).isValido();
+        ArrayList<Integer> listaNumero;
+        boolean isDigito1;
+        boolean isDigito2;
+        if (isNumero && isTamanho) {
+            listaNumero = new StringToArrayList(parametro).toArrayInt();
+            Collections.reverse(listaNumero);
+            isDigito1 = formulaCnpj(listaNumero, 2) == listaNumero.get(1);
+            isDigito2 = formulaCnpj(listaNumero, 1) == listaNumero.get(0);
+            if (isDigito1 && isDigito2) {
+                return true;
+            } else {
+                return false;
+            }
         } else {
             return false;
         }

@@ -14,11 +14,19 @@ public class ValidarCpf extends Validar {
     public boolean isValido() {
         boolean isNumero = new ValidarNumero(parametro).isValido();
         boolean isTamanho = new ValidarTamanho(parametro, 11).isValido();
-        ArrayList<Integer> listaNumero = new StringToArrayList(parametro).toArrayInt();
-        boolean isDigito1 = formulaCpf(listaNumero, 10) == listaNumero.get(9);
-        boolean isDigito2 = formulaCpf(listaNumero, 11) == listaNumero.get(10);
-        if (isNumero && isTamanho && isDigito1 && isDigito2) {
-            return true;
+        ArrayList<Integer> listaNumero;
+        boolean isDigito1;
+        boolean isDigito2;
+
+        if (isNumero && isTamanho) {
+            listaNumero = new StringToArrayList(parametro).toArrayInt();
+            isDigito1 = formulaCpf(listaNumero, 10) == listaNumero.get(9);
+            isDigito2 = formulaCpf(listaNumero, 11) == listaNumero.get(10);
+            if (isDigito1 && isDigito2) {
+                return true;
+            } else {
+                return false;
+            }
         } else {
             return false;
         }
