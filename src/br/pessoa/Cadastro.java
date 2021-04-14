@@ -1,9 +1,10 @@
 package br.pessoa;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
-import br.validacao.Validacao;
+import br.validacao.ValidarCnpj;
+import br.validacao.ValidarCpf;
+import br.validacao.ValidarObjeto;
 
 public class Cadastro {
     ArrayList<Pessoa> cadastro;
@@ -31,13 +32,20 @@ public class Cadastro {
         boolean isFisica;
         boolean isJuridica;
         for (Pessoa pessoa : cadastro) {
-            isFisica = pessoa.getClass().getName() == "Fisica";
-            isJuridica = pessoa.getClass().getName() == "Juridica";
+            System.out.println("Nome: " + pessoa.getNome());
+            isFisica = new ValidarObjeto(pessoa, "br.pessoa.Fisica").isValido();
+            isJuridica = new ValidarObjeto(pessoa, "br.pessoa.Juridica").isValido();
+            String documento = "Documento: ";
+            String validacao = "Ideterminado.";
             if (isFisica) {
-                
+                documento = "Cpf: ";
+                validacao = new ValidarCpf(pessoa.getDocumento()).isValido() ? "Válido" : "Inválido";
             } else if (isJuridica) {
-                
+                documento = "Cnpj: ";
+                validacao = new ValidarCnpj(pessoa.getDocumento()).isValido() ? "Válido" : "Inválido";
             }
+            System.out.println(documento + pessoa.getDocumento());
+            System.out.println("Estado: " + validacao);
             System.out.println();
         }
     }
