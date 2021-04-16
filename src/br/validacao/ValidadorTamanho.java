@@ -1,10 +1,10 @@
 package br.validacao;
 
-public class ValidarTamanho extends Validar {
+public class ValidadorTamanho extends Validador {
 
     private int tamanho;
 
-    public ValidarTamanho(String parametro, int tamanho) {
+    public ValidadorTamanho(String parametro, int tamanho) {
         super(parametro);
         this.tamanho = tamanho;
     }

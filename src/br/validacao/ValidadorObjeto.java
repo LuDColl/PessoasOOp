@@ -1,9 +1,9 @@
 package br.validacao;
 
-public class ValidarObjeto extends Validar {
+public class ValidadorObjeto extends Validador {
     Object objeto;
 
-    public ValidarObjeto(Object objeto, String parametro) {
+    public ValidadorObjeto(Object objeto, String parametro) {
         super(parametro);
         this.objeto = objeto;
     }

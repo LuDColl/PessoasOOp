@@ -5,16 +5,16 @@ import java.util.Collections;
 
 import br.conversao.StringToArrayList;
 
-public class ValidarCnpj extends Validar {
+public class ValidadorCnpj extends Validador {
 
-    public ValidarCnpj(String documento) {
+    public ValidadorCnpj(String documento) {
         super(documento);
     }
 
     @Override
     public boolean isValido() {
-        boolean isNumero = new ValidarNumero(parametro).isValido();
-        boolean isTamanho = new ValidarTamanho(parametro, 14).isValido();
+        boolean isNumero = new ValidadorNumero(parametro).isValido();
+        boolean isTamanho = new ValidadorTamanho(parametro, 14).isValido();
         ArrayList<Integer> listaNumero;
         boolean isDigito1;
         boolean isDigito2;

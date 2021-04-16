@@ -1,8 +1,8 @@
 package br.validacao;
 
-public class ValidarNumero extends Validar {
+public class ValidadorNumero extends Validador {
 
-    public ValidarNumero(String numero) {
+    public ValidadorNumero(String numero) {
         super(numero);
     }
 

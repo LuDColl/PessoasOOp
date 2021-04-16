@@ -1,9 +1,9 @@
 package br.validacao;
 
-public abstract class Validar implements Validacao{
+public abstract class Validador implements Validacao{
     String parametro;
 
-    public Validar(String parametro) {
+    public Validador(String parametro) {
         super();
         this.parametro = parametro;
     }

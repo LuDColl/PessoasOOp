@@ -2,9 +2,9 @@ package br.pessoa;
 
 import java.util.ArrayList;
 
-import br.validacao.ValidarCnpj;
-import br.validacao.ValidarCpf;
-import br.validacao.ValidarObjeto;
+import br.validacao.ValidadorCnpj;
+import br.validacao.ValidadorCpf;
+import br.validacao.ValidadorObjeto;
 
 public class Cadastro {
     ArrayList<Pessoa> cadastro;
@@ -33,16 +33,16 @@ public class Cadastro {
         boolean isJuridica;
         for (Pessoa pessoa : cadastro) {
             System.out.println("Nome: " + pessoa.getNome());
-            isFisica = new ValidarObjeto(pessoa, "br.pessoa.Fisica").isValido();
-            isJuridica = new ValidarObjeto(pessoa, "br.pessoa.Juridica").isValido();
+            isFisica = new ValidadorObjeto(pessoa, "br.pessoa.Fisica").isValido();
+            isJuridica = new ValidadorObjeto(pessoa, "br.pessoa.Juridica").isValido();
             String documento = "Documento: ";
             String validacao = "Ideterminado.";
             if (isFisica) {
                 documento = "Cpf: ";
-                validacao = new ValidarCpf(pessoa.getDocumento()).isValido() ? "Válido" : "Inválido";
+                validacao = new ValidadorCpf(pessoa.getDocumento()).isValido() ? "Válido" : "Inválido";
             } else if (isJuridica) {
                 documento = "Cnpj: ";
-                validacao = new ValidarCnpj(pessoa.getDocumento()).isValido() ? "Válido" : "Inválido";
+                validacao = new ValidadorCnpj(pessoa.getDocumento()).isValido() ? "Válido" : "Inválido";
             }
             System.out.println(documento + pessoa.getDocumento());
             System.out.println("Estado: " + validacao);

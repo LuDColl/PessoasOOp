@@ -4,16 +4,16 @@ import java.util.ArrayList;
 
 import br.conversao.StringToArrayList;
 
-public class ValidarCpf extends Validar {
+public class ValidadorCpf extends Validador {
 
-    public ValidarCpf(String documento) {
+    public ValidadorCpf(String documento) {
         super(documento);
     }
 
     @Override
     public boolean isValido() {
-        boolean isNumero = new ValidarNumero(parametro).isValido();
-        boolean isTamanho = new ValidarTamanho(parametro, 11).isValido();
+        boolean isNumero = new ValidadorNumero(parametro).isValido();
+        boolean isTamanho = new ValidadorTamanho(parametro, 11).isValido();
         ArrayList<Integer> listaNumero;
         boolean isDigito1;
         boolean isDigito2;
